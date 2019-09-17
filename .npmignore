@@ -1,5 +1,1 @@
-.travis.yml
-coverage
-.DS_Store
-node_modules
-npm-debug.log
+Jenkinsfile
