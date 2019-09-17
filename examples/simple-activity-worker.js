@@ -13,7 +13,7 @@ var activityPoller = new swf.ActivityPoller({
 
 activityPoller.on('activityTask', function(task) {
     console.log("Received new activity task !");
-    var output = task.config.input;
+    var output = task.input;
 
     task.respondCompleted(output, function (err) {
 
@@ -40,8 +40,10 @@ activityPoller.start();
  * It is not recommanded to stop the poller in the middle of a long-polling request,
  * because SWF might schedule an ActivityTask to this poller anyway, which will obviously timeout.
  *
- * The .stopHandler() method will wait for the end of the current polling request, 
+ * The .stop() method will wait for the end of the current polling request, 
  * eventually wait for a last activity execution, then stop properly :
  */
-process.on('SIGINT', activityPoller.stopHandler);
-process.on('SIGTERM', activityPoller.stopHandler);
+process.on('SIGINT', function () {
+   console.log('Got SIGINT ! Stopping activity poller after this request...please wait...');
+   activityPoller.stop();
+});
