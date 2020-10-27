@@ -1,6 +1,6 @@
 {
   "name": "@cirrus/aws-swf",
-  "version": "4.1.2",
+  "version": "4.1.3",
   "description": "A Node.js library for accessing Amazon SWF",
   "author": "Eric Abouaf <eric.abouaf@gmail.com>",
   "engines": {
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "aws-sdk": "~2.0.7",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.19"
   },
   "devDependencies": {
     "coveralls": "^3.0.6",
